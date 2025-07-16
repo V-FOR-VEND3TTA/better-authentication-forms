@@ -1,0 +1,35 @@
+# Ignore node_modules if using npm for frontend tools
+node_modules/
+
+# macOS system files
+.DS_Store
+
+# Log files
+*.log
+
+# Build artifacts
+dist/
+build/
+
+# Editor settings
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Environment files
+.env
+.env.local
+.env.*
+
+# npm/yarn lock files (if not needed)
+package-lock.json
+yarn.lock
+
+# Temp files
+*.tmp
+*.swp
+*.bak
+
+# Optional: Ignore compiled CSS/JS if you're using a preprocessor
+*.map
