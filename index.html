@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth Forms - Bootstrap</title>
+    <!--Bootstrap CDN-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--Bootstrap Icons CDN-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .auth-container {
+            max-width: 400px;
+            margin: auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .form-control {
+            height: 44px;
+        }
+        .btn-auth {
+            height: 44px;
+        }
+        .social-btn {
+            width: 100%;
+            height: 44px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+        }
+        .divider::before, .divider::after {
+            content: "";
+            height: 1px;
+            background: #ddd;
+            width: 40%;
+            position: absolute;
+            top: 50%;
+        }
+        .divider::before {
+            left: 0;
+        }
+        .divider::after {
+            right: 0;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container d-flex align-items-center justify-content-center vh-100">
+    <div class="auth-container">
+
+        <!-- Login Form -->
+        <div id="loginSection">
+            <div class="text-center">
+                <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="50">
+                <h3 class="mt-2">Welcome Back</h3>
+                <p class="text-muted">Please enter your details to log back in</p>
+            </div>
+            <form>
+                <div class="mb-3">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-control" placeholder="Enter your email" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label d-flex justify-content-between">
+                        Password 
+                        <a href="#" class="text-decoration-none" onclick="showForgotPassword()">Forgot Password?</a>
+                    </label>
+                    <input type="password" class="form-control" placeholder="Enter your password" required>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input">
+                    <label class="form-check-label">Remember me</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-auth w-100">Login</button>
+            </form>
+            <div class="divider">OR</div>
+            <button class="btn btn-dark social-btn"><i class="bi bi-apple"></i> Sign in with Apple</button>
+            <button class="btn btn-outline-dark social-btn"><i class="bi bi-google"></i> Sign in with Google</button>
+            <p class="text-center mt-3">Don't have an account? <a href="#" onclick="showRegister()" class="text-decoration-none">Register</a></p>
+        </div>
+
+        <!-- Register Form -->
+        <div id="registerSection" class="hidden">
+            <div class="text-center">
+                <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="50">
+                <h3 class="mt-2">Create Account</h3>
+                <p class="text-muted">Join us today! Fill in your details below.</p>
+            </div>
+            <form>
+                <div class="mb-3">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-control" placeholder="Enter your name" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-control" placeholder="Enter your email" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" placeholder="Create a password" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" placeholder="Confirm your password" required>
+                </div>
+                <p class="text-muted small">By signing up, you agree to our Terms & Privacy Policy.</p>
+                <button type="submit" class="btn btn-primary btn-auth w-100">Register</button>
+            </form>
+            <p class="text-center mt-3">Already have an account? <a href="#" onclick="showLogin()" class="text-decoration-none">Login</a></p>
+        </div>
+
+        <!-- Forgot Password Form -->
+        <div id="forgotPasswordSection" class="hidden">
+            <div class="text-center">
+                <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="50">
+                <h3 class="mt-2">Reset Password</h3>
+                <p class="text-muted">Enter your email to receive a password reset link.</p>
+            </div>
+            <form>
+                <div class="mb-3">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-control" placeholder="Enter your email" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-auth w-100">Send Reset Link</button>
+            </form>
+            <p class="text-center mt-3"><a href="#" onclick="showLogin()" class="text-decoration-none">Back to Login</a></p>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function showRegister() {
+        document.getElementById('loginSection').classList.add('hidden');
+        document.getElementById('forgotPasswordSection').classList.add('hidden');
+        document.getElementById('registerSection').classList.remove('hidden');
+    }
+
+    function showLogin() {
+        document.getElementById('registerSection').classList.add('hidden');
+        document.getElementById('forgotPasswordSection').classList.add('hidden');
+        document.getElementById('loginSection').classList.remove('hidden');
+    }
+
+    function showForgotPassword() {
+        document.getElementById('loginSection').classList.add('hidden');
+        document.getElementById('registerSection').classList.add('hidden');
+        document.getElementById('forgotPasswordSection').classList.remove('hidden');
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
